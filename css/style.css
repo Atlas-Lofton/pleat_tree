@@ -1,0 +1,33 @@
+.header {
+    margin-left: 2rem;
+    border: 1px solid black;
+    display: flex;
+    font-size: 250%;
+}
+.banner {
+    
+        margin-left: 2rem;
+        border: 1px solid black;
+        display: flex;
+        font-size: 200%;
+    
+}
+.link {
+        display: flex;
+        border: 1 px solid black;
+        float: left;
+    }
+.chart {
+    float: right;
+}
+.article {
+    margin-top: 3rem;
+    margin-left: 2rem;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}

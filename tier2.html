@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tier 1</title>
+    <title>Tier 2</title>
     <!--link rel="icon" href="icon" type="image/icon" -->
-    <!--link rel="stylesheet" href="css" -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="banner">
         <!-- brief description of the tier. -->
+         <h1>Welcome to the second tier!</h1>
+         <p>Congrats for beating the first tier. Here, we'll try something a little harder. But you've made eggs before, so you can do this tier too!</p>
     </div>
     <article class="article">
     <!-- recipe will be here. Just one for the first tier. -->
@@ -17,5 +19,20 @@
   <article class="article">
     <!--Another recipe-->
   </article>  
+  <div class="rating">
+    <!-- rating will be here. -->
+    <input type="radio" name="1" id="star">1
+    <input type="radio" name="2" id="star">2
+    <input type="radio" name="3" id="star">3
+    <input type="radio" name="4" id="star">4
+    <input type="radio" name="5" id="star">5
+  </div>  
+  <div>
+    <p>Try again<!-- this would show up if rating is three or under. Onclick on text will refresh the page-->
+  </div>
+  <div>
+        <!-- button will be disabled until requirements are met. link to tier 2-->
+         <button class="button" onclick="document.location='tier3.html'">Go to third tier.</button>
+    </div> 
 </body>
 </html>
