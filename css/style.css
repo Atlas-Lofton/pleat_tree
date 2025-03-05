@@ -31,3 +31,6 @@
     text-align: center;
     justify-content: center;
 }
+.retry {
+    border: 1px solid black;
+}
