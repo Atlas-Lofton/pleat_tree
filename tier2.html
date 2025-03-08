@@ -14,7 +14,7 @@
          <p>Congrats for beating the first tier. Here, we'll try something a little harder. But you've made eggs before, so you can do this tier too!</p>
     </div>
     <article class="article">
-    <!-- recipe will be here. Just one for the first tier. -->
+  
   </article>
   <article class="article">
     <!--Another recipe-->
@@ -27,13 +27,13 @@
     <input type="radio" name="radio" id="star4">4
     <input type="radio" name="radio" id="star5">5
   </div>  
-  <div class="retry" id="retryLink">
-    <p>Try again<!-- this would show up if rating is three or under. Onclick on text will refresh the page-->
+  <div id="retryLink">
+    <button class="hidden active" id="retry" onclick="document.location='tier1.html'">Try again </button>
   </div>
   <div> 
-        <!-- button will be disabled until requirements are met. link to tier 2-->
+        
          <button class="button" id="button" onclick="document.location='tier3.html'">Go to third tier.</button>
     </div> 
-    <script src="javascript/tier1.js"></script>
+    <script src="javascript/tier1and2.js"></script>
 </body>
 </html>

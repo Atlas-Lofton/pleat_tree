@@ -1,36 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!DOCTYPE html><html lang="en">
+   <head> <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tier 1</title>
-    <!--link rel="icon" href="icon" type="image/icon" -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="banner">
-        <H1>Welcome to tier 1!</H1>
-        <p>We'll start with something easy. If you don't get it the first time, you'll definetly get it the second.</p>
-    </div>
-    <article class="article">
-    <!-- recipe will be here. Just one for the first tier. -->
-  </article> 
+   <title>Tier 1</title> 
+  
+   <!-- link rel="icon" href="icon" type="image/icon" -->
+   <link rel="stylesheet" href="css/style.css">
+  </head> 
+    <body> 
+    <div class="banner"> <H1>Welcome to tier 1!</H1> 
+  <p>We'll start with something easy. If you don't get it the first time, you'll definetly get it the second.</p>
+ </div> <article class="article"> </article> 
   <div class="rating" id="rating">
-    <!-- rating will be here. -->
-    <p>How'd you do? Be honest!</p>
-    <input type="radio" name="radio" id="star1">1
-    <input type="radio" name="radio" id="star2">2
-    <input type="radio" name="radio" id="star3">3
-    <input type="radio" name="radio" id="star4">4
-    <input type="radio" name="radio" id="star5">5
-  </div>  
-  <div class="retry" id="retryLink">
-    <a href="tier1.html">Try again</a><!-- this would show up if rating is three or under. Onclick on text will refresh the page-->
+  <p>How'd you do? Be honest!</p>
+  <input type="radio" name="radio" id="star1">1
+  <input type="radio" name="radio" id="star2">2
+  <input type="radio" name="radio" id="star3">3
+  <input type="radio" name="radio" id="star4">4
+  <input type="radio" name="radio" id="star5">5
+  </div> 
+  <div id="retryLink" >
+    <button class="hidden active" id="retry" onclick="document.location='tier1.html'">Try again </button> 
+ </div> 
+ <div id="button">
+  <button class="button" id="button" onclick="document.location='tier2.html'">Go to second tier.</button>
   </div>
-  <div id="button">
-        <!-- button will be disabled until requirements are met. link to tier 2-->
-         <button class="button" id="button" onclick="document.location='tier2.html'">Go to second tier.</button>
-    </div> 
-    <script src="javascript/tier1.js"></script>
-  </body>
-</html>
+  <script src="javascript/tier1and2.js"></script>
+ 
+    </body>
+ </html>

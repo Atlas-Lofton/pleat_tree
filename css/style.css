@@ -31,6 +31,14 @@
     text-align: center;
     justify-content: center;
 }
-.retry {
-    border: 1px solid black;
+
+.hidden {
+    display: none;
 }
+/*.active {
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    display: inline-block;
+}*/
