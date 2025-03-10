@@ -1,6 +1,6 @@
 "use strict"
 
-import config from 'module_config.js';
+//import config from 'config.js';
 
 const button = document.getElementById('button');
 const radioButtons = document.querySelectorAll('input[type="radio"]');
@@ -51,7 +51,7 @@ updateButtonVisibility();
 
 fetch('https://api.api-ninjas.com/v1/recipe?query=scrambled eggs', {
   headers: {
-    'X-Api-Key': config.apiKey
+    'X-Api-Key': 
   }
 })
 .then(response => {

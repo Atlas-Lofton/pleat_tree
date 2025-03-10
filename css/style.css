@@ -20,7 +20,7 @@
 .chart {
     float: right;
 }
-.article {
+article {
     margin-top: 3rem;
     margin-left: 2rem;
     border: 2px solid black;
