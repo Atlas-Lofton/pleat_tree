@@ -37,8 +37,64 @@ radio.addEventListener('change', updateButtonVisibility);
 
 updateButtonVisibility();
 
+const articleElement = document.querySelector('article.article');
+const fetchData = async () => {
+  try {
+    const response = await fetch('http://localhost:3001/api/data/tier3');
+    const data = await response.json();
+    console.log(data);
+    window.apiData = data;
+    window.dispatchEvent(new Event('apiDataLoaded'));
+  } catch (error) {
+    console.log(error);
+  }
+};
+fetchData();
+window.addEventListener('apiDataLoaded', () => {
+  if (window.apiData && window.apiData.length >= 4) {
+    const fourthItem = window.apiData[1];
+    articleElement.textContent = JSON.stringify(fourthItem);
+  } else {
+    articleElement.textContent = 'Data not available or not enough items.';
+  }
+});
+const data = {
+  articleContent: articleElement.textContent,
+  articleChildren: Array.from(articleElement.children).map(el => ({
+    tagName: el.tagName,
+    id: el.id,
+    className: el.className,
+  })),
+};
 
-fetch('https://api.api-ninjas.com/v1/recipe?query=boiled eggs', {
+
+
+document.addEventListener('DOMContentLoaded',()=> {
+  fetchData();
+})
+
+
+
+
+
+/*async function fetchData() {
+  try {
+    const response = await fetch('http://localhost:3001/api/data/tier2'); // Fetch data from your server
+    const data = await response.json();
+    // Process the data received from the server
+    console.log(data);
+    // ... do something with the data ...
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+document.addEventListener('DOMContentLoaded',()=> {
+  fetchData();
+})*/
+
+
+/*fetch('https://api.api-ninjas.com/v1/recipe?query=boiled eggs', {
     headers: {
       'X-Api-Key': 'cqRo1lugsKv0xkSibZPhWw==943V65luCmqhJzwH'
     }
@@ -122,4 +178,4 @@ fetch('https://api.api-ninjas.com/v1/recipe?query=boiled eggs', {
   }
   const data = {
     message: 'Waiting for apiData to be available.',
-  };
+  };*/

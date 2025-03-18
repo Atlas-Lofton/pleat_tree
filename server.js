@@ -7,6 +7,7 @@ const path = require('path');
 
 
 
+//require('dotenv').config();
 dotenv.config(); // Load environment variables from .env
 
 const app = express();
@@ -21,6 +22,44 @@ app.get('/api/data', async (req, res) => {
   try {
     // Replace this with the actual API endpoint you need to call
     const apiUrl = 'https://api.api-ninjas.com/v1/recipe?query=scrambled eggs'; 
+    const response = await axios.get(apiUrl, {
+      headers: {
+        'X-Api-Key': apiKey
+      }
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    res.status(500).json({ error: 'Failed to fetch data' });
+  }
+});
+app.get('/tier2', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'tier2.html'));
+  });
+// Example API endpoint to fetch data using the API key
+app.get('/api/data/tier2', async (req, res) => {
+  try {
+    // Replace this with the actual API endpoint you need to call
+    const apiUrl = 'https://api.api-ninjas.com/v1/recipe?query=fried egg'; 
+    const response = await axios.get(apiUrl, {
+      headers: {
+        'X-Api-Key': apiKey
+      }
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    res.status(500).json({ error: 'Failed to fetch data' });
+  }
+});
+app.get('/tier2', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'tier3.html'));
+  });
+// Example API endpoint to fetch data using the API key
+app.get('/api/data/tier3', async (req, res) => {
+  try {
+    // Replace this with the actual API endpoint you need to call
+    const apiUrl = 'https://api.api-ninjas.com/v1/recipe?query=boiled eggs'; 
     const response = await axios.get(apiUrl, {
       headers: {
         'X-Api-Key': apiKey

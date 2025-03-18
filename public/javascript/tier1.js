@@ -50,17 +50,53 @@ radio.addEventListener('change', updateButtonVisibility);
 updateButtonVisibility();
 
 
-async function fetchData() {
+/*async function fetchData() {
   try {
     const response = await fetch('http://localhost:3001/api/data'); // Fetch data from your server
     const data = await response.json();
     // Process the data received from the server
     console.log(data);
-    // ... do something with the data ...
+    (data => {
+      window.apiData = data; // Assign data to window.apiData to make it global
+      window.dispatchEvent(new Event('apiDataLoaded')); // Dispatch the event after data is available
+    })
+    
+    
   } catch (error) {
     console.log(error);
   }
-}
+}*/
+const articleElement = document.querySelector('article.article');
+const fetchData = async () => {
+  try {
+    const response = await fetch('http://localhost:3001/api/data');
+    const data = await response.json();
+    console.log(data);
+    window.apiData = data;
+    window.dispatchEvent(new Event('apiDataLoaded'));
+  } catch (error) {
+    console.log(error);
+  }
+};
+fetchData();
+window.addEventListener('apiDataLoaded', () => {
+  if (window.apiData && window.apiData.length >= 4) {
+    const fourthItem = window.apiData[3];
+    articleElement.textContent = JSON.stringify(fourthItem);
+  } else {
+    articleElement.textContent = 'Data not available or not enough items.';
+  }
+});
+const data = {
+  articleContent: articleElement.textContent,
+  articleChildren: Array.from(articleElement.children).map(el => ({
+    tagName: el.tagName,
+    id: el.id,
+    className: el.className,
+  })),
+};
+
+
 
 document.addEventListener('DOMContentLoaded',()=> {
   fetchData();
@@ -70,9 +106,10 @@ document.addEventListener('DOMContentLoaded',()=> {
 
 
 
+
 /*fetch('https://api.api-ninjas.com/v1/recipe?query=scrambled eggs', {
   headers: {
-    'X-Api-Key': 'cqRo1lugsKv0xkSibZPhWw==943V65luCmqhJzwH'
+    'X-Api-Key': 'ApiKey'
   }
 })
 .then(response => {
@@ -87,9 +124,9 @@ document.addEventListener('DOMContentLoaded',()=> {
 })
 .catch(error => {
   console.error('Error fetching data:', error);
-});
+});*/
 
-const articleElement = document.querySelector('article');
+/*const articleElement = document.querySelector('article');
 const checkAndDisplayData = () => {
   if (window.apiData && Array.isArray(window.apiData) && window.apiData.length > 3) {
     const fourthItem = window.apiData[3];
@@ -153,10 +190,11 @@ if (window.apiData) {
 }
 const data = {
   message: 'Waiting for apiData to be available.',
-};/*
+};
+checkAndDisplayData();*/
 
-/*const articleElement = document.querySelector('article');
-const checkAndDisplayData = () => {
+//const articleElement = document.querySelector('article');
+/*const checkAndDisplayData = () => {
   if (window.apiData && Array.isArray(window.apiData) && window.apiData.length > 3) {
     const fourthItem = window.apiData[3];
     if (typeof fourthItem === 'object') {
@@ -191,9 +229,9 @@ if (window.apiData) {
     const data = checkAndDisplayData();
   });
 }
-const data = {
-  message: 'Waiting for apiData to be available.',
-};*/
+//const data = {
+  //message: 'Waiting for apiData to be available.',
+//};*/
 
 /*function updateArticle(data) {
   const articleElement = document.querySelector('article');
@@ -203,10 +241,10 @@ const data = {
   }
 
   // Clear any existing content in the article
-  articleElement.innerHTML = '';
+  //articleElement.innerHTML = '';*/
 
   // Iterate through the data and create HTML elements for each item
-  data.forEach(item => {
+  /*data.forEach(item => {
     const titleElement = document.createElement('h2');
     titleElement.textContent = item.title;
 
@@ -216,7 +254,7 @@ const data = {
     articleElement.appendChild(titleElement);
     articleElement.appendChild(contentElement);
   });
-}*/
+}
 
 
 /*const articleElement = document.querySelector('article.article');
@@ -286,5 +324,5 @@ const updateArticleContent = async () => {
   }
 };
 
-// Call the function to update the article content
-updateArticleContent();*/
+// Call the function to update the article content*/
+//updateArticleContent();
