@@ -50,7 +50,8 @@ radio.addEventListener('change', updateButtonVisibility);
 updateButtonVisibility();
 
 
-/*async function fetchData() {
+/* old call. 
+async function fetchData() {
   try {
     const response = await fetch('http://localhost:3001/api/data'); // Fetch data from your server
     const data = await response.json();
@@ -66,6 +67,8 @@ updateButtonVisibility();
     console.log(error);
   }
 }*/
+
+ //Use this api call
 const articleElement = document.querySelector('article.article');
 const fetchData = async () => {
   try {
@@ -79,14 +82,58 @@ const fetchData = async () => {
   }
 };
 fetchData();
-window.addEventListener('apiDataLoaded', () => {
-  if (window.apiData && window.apiData.length >= 4) {
-    const fourthItem = window.apiData[3];
-    articleElement.textContent = JSON.stringify(fourthItem);
-  } else {
-    articleElement.textContent = 'Data not available or not enough items.';
-  }
-});
+//window.addEventListener('apiDataLoaded', () => {
+  //if (window.apiData && window.apiData.length >= 4) {
+    //const fourthItem = window.apiData[3];
+    //articleElement.textContent = JSON.stringify(fourthItem);
+    //new code starts here
+    window.addEventListener('apiDataLoaded', () => {
+      if (window.apiData && window.apiData.length >= 4) {
+        const fourthItem = window.apiData[3];
+        // Clear existing content
+        articleElement.innerHTML = '';
+    
+        if (typeof fourthItem === 'object') {
+            // Create elements for title, ingredients, and instructions
+            const titleElement = document.createElement('h3');
+            titleElement.textContent = fourthItem.title || 'No Title';
+            const ingredientsHeading = document.createElement('h4');
+            ingredientsHeading.textContent = 'Ingredients:';
+            const ingredientsList = document.createElement('ul');
+            if (Array.isArray(fourthItem.ingredients)) {
+              fourthItem.ingredients.forEach(ingredient => {
+                const ingredientItem = document.createElement('li');
+                ingredientItem.textContent = ingredient;
+                ingredientsList.appendChild(ingredientItem);
+              });
+            } else {
+              const ingredientItem = document.createElement('li');
+              ingredientItem.textContent = fourthItem.ingredients || 'No ingredients';
+              ingredientsList.appendChild(ingredientItem);
+            }
+            const instructionsHeading = document.createElement('h4');
+            instructionsHeading.textContent = 'Instructions:';
+            const instructionsParagraph = document.createElement('p');
+            instructionsParagraph.textContent = fourthItem.instructions || 'No instructions';
+            // Append elements to the article
+            articleElement.appendChild(titleElement);
+            articleElement.appendChild(ingredientsHeading);
+            articleElement.appendChild(ingredientsList);
+            articleElement.appendChild(instructionsHeading);
+            articleElement.appendChild(instructionsParagraph);
+          }
+       
+      } else {
+        articleElement.textContent = 'Data not available or not enough items.';
+      }
+    });
+
+  //} 
+  //else {
+    //articleElement.textContent = 'Data not available or not enough items.';
+  //}
+//})
+;
 const data = {
   articleContent: articleElement.textContent,
   articleChildren: Array.from(articleElement.children).map(el => ({
@@ -98,11 +145,9 @@ const data = {
 
 
 
-document.addEventListener('DOMContentLoaded',()=> {
+/*document.addEventListener('DOMContentLoaded',()=> {
   fetchData();
-})
-
-
+})*/
 
 
 

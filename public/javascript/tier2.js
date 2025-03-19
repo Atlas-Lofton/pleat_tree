@@ -37,6 +37,82 @@ radio.addEventListener('change', updateButtonVisibility);
 
 updateButtonVisibility();
 
+const articleElement = document.querySelector('article.article');
+const fetchData = async () => {
+  try {
+    const response = await fetch('http://localhost:3001/api/data/tier2');
+    const data = await response.json();
+    console.log(data);
+    window.apiData = data;
+    window.dispatchEvent(new Event('apiDataLoaded'));
+  } catch (error) {
+    console.log(error);
+  }
+};
+fetchData();
+//window.addEventListener('apiDataLoaded', () => {
+  //if (window.apiData && window.apiData.length >= 4) {
+    //const fourthItem = window.apiData[3];
+    //articleElement.textContent = JSON.stringify(fourthItem);
+    //new code starts here
+    window.addEventListener('apiDataLoaded', () => {
+      if (window.apiData && window.apiData.length >= 4) {
+        const firstItem = window.apiData[0];
+        // Clear existing content
+        articleElement.innerHTML = '';
+    
+        if (typeof firstItem === 'object') {
+            // Create elements for title, ingredients, and instructions
+            const titleElement = document.createElement('h3');
+            titleElement.textContent = firstItem.title || 'No Title';
+            const ingredientsHeading = document.createElement('h4');
+            ingredientsHeading.textContent = 'Ingredients:';
+            const ingredientsList = document.createElement('ul');
+            if (Array.isArray(firstItem.ingredients)) {
+              firstItem.ingredients.forEach(ingredient => {
+                const ingredientItem = document.createElement('li');
+                ingredientItem.textContent = ingredient;
+                ingredientsList.appendChild(ingredientItem);
+              });
+            } else {
+              const ingredientItem = document.createElement('li');
+              ingredientItem.textContent = firstItem.ingredients || 'No ingredients';
+              ingredientsList.appendChild(ingredientItem);
+            }
+            const instructionsHeading = document.createElement('h4');
+            instructionsHeading.textContent = 'Instructions:';
+            const instructionsParagraph = document.createElement('p');
+            instructionsParagraph.textContent = firstItem.instructions || 'No instructions';
+            // Append elements to the article
+            articleElement.appendChild(titleElement);
+            articleElement.appendChild(ingredientsHeading);
+            articleElement.appendChild(ingredientsList);
+            articleElement.appendChild(instructionsHeading);
+            articleElement.appendChild(instructionsParagraph);
+          }
+       
+      } else {
+        articleElement.textContent = 'Data not available or not enough items.';
+      }
+    });
+
+  //} 
+  //else {
+    //articleElement.textContent = 'Data not available or not enough items.';
+  //}
+//})
+;
+const data = {
+  articleContent: articleElement.textContent,
+  articleChildren: Array.from(articleElement.children).map(el => ({
+    tagName: el.tagName,
+    id: el.id,
+    className: el.className,
+  })),
+};
+
+
+
 /*async function fetchData() {
   try {
     const response = await fetch('http://localhost:3001/api/data/tier2'); // Fetch data from your server
@@ -53,7 +129,7 @@ document.addEventListener('DOMContentLoaded',()=> {
   fetchData();
 })*/
 
-const articleElement = document.querySelector('article.article');
+/*const articleElement = document.querySelector('article.article');
 const fetchData = async () => {
   try {
     const response = await fetch('http://localhost:3001/api/data/tier2');
@@ -81,7 +157,7 @@ const data = {
     id: el.id,
     className: el.className,
   })),
-};
+};*/
 
 
 
