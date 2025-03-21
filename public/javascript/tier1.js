@@ -371,3 +371,6 @@ const updateArticleContent = async () => {
 
 // Call the function to update the article content*/
 //updateArticleContent();
+
+//module.exports = tier1;
+module.exports = isRadio4or5Selected()

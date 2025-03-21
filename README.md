@@ -6,6 +6,27 @@ Read through the site and click the buttons as you please.
 Thank you.
 
 
+ensure package.json reads as follows:
+{ "scripts": {
+  "test": "jest"
+},
+  "dependencies": {
+    "axios": "^1.8.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
+
+test script must be included, or tests will not run.
+run test with npm test
 
 
 
