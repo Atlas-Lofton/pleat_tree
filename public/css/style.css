@@ -1,32 +1,36 @@
 .header {
-    margin-left: 2rem;
+    text-align: center;
     border: 1px solid black;
-    display: flex;
-    font-size: 250%;
+  
+    font-size: 200%;
 }
 .banner {
     
-        margin-left: 2rem;
+        text-align: center;
         border: 1px solid black;
-        display: flex;
+        
         font-size: 150%;
-    
-}
+    }
 .banner h3 {
     padding: 5px;
     justify-content: center;
 }
 .banner p {
     margin-left: 1rem;
-    margin-top: 5rem;
-    padding: 2rem;
-
-
-}
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
 .link {
         display: flex;
-        border: 1 px solid black;
+        border: 1px solid rgb(19, 18, 18);
+        padding: 2px;
         float: left;
+        margin-top: 20px;
+    
+    }
+    .link a {
+      text-decoration: none;
     }
 .chart {
     float: right;
@@ -41,6 +45,16 @@
     background-color: #f9f9f9;
     text-align: left;
   }
+.article {
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  margin: 5%;
+  padding: 10px;
+}
+
 
   h2 {
     color: #333;
@@ -64,6 +78,12 @@
 
 .hidden {
     display: none;
+}
+
+.rating {
+  border: 1px solid black;
+  width: 20%;
+  margin-bottom: 10px;
 }
 /*.active {
     cursor: pointer;
