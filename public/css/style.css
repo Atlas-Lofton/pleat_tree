@@ -2,14 +2,16 @@
     text-align: center;
     border: 1px solid black;
   
-    font-size: 200%;
+    font-size: 125%;
 }
 .banner {
     
         text-align: center;
-        border: 1px solid black;
-        
-        font-size: 150%;
+        border: 1px solid #ccc;
+        background-color: lightgray;
+        height: 20%;
+        width: auto;
+        font-size: 125%;
     }
 .banner h3 {
     padding: 5px;
@@ -32,9 +34,9 @@
     .link a {
       text-decoration: none;
     }
-.chart {
+/*.chart {
     float: right;
-}
+}*/
 .article1 {
     font-family: Arial, sans-serif;
     max-width: 600px;
@@ -42,17 +44,21 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: lightgray;
     text-align: left;
   }
 .article {
-  border: 3px solid black;
+  border: 3px solid #ccc;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-self: center;
   justify-content: center;
-  margin: 5%;
+  margin: 20px auto;
   padding: 10px;
+  width: 50%;
+  height: auto;
+  background-color: lightgray;
+  border-radius: 5px;
 }
 
 
@@ -81,9 +87,12 @@
 }
 
 .rating {
-  border: 1px solid black;
-  width: 20%;
+  border: 1px solid #ccc;
+  width: 50%;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  background-color: lightgray;
 }
 /*.active {
     cursor: pointer;
@@ -92,3 +101,16 @@
     padding: 10px 20px;
     display: inline-block;
 }*/
+
+@media screen and (min-width: 720px) {
+  .rating {
+    width: 20%;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+
+
+
+}

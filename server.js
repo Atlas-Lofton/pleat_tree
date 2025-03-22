@@ -72,6 +72,38 @@ app.get('/api/data/tier3', async (req, res) => {
   }
 });
 
+// Example API endpoint to fetch data using the API key
+app.get('/api/data/tier4', async (req, res) => {
+  try {
+    // Replace this with the actual API endpoint you need to call
+    const apiUrl = 'https://api.api-ninjas.com/v1/recipe?query=poached eggs'; 
+    const response = await axios.get(apiUrl, {
+      headers: {
+        'X-Api-Key': apiKey
+      }
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    res.status(500).json({ error: 'Failed to fetch data' });
+  }
+});
+// Api call tier5
+app.get('/api/data/tier5', async (req, res) => {
+  try {
+    // Replace this with the actual API endpoint you need to call
+    const apiUrl = 'https://api.api-ninjas.com/v1/recipe?query=souffle'; 
+    const response = await axios.get(apiUrl, {
+      headers: {
+        'X-Api-Key': apiKey
+      }
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    res.status(500).json({ error: 'Failed to fetch data' });
+  }
+});
 // Serve static files (if needed)
 //app.use(express.static('javascript'));
 
