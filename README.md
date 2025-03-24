@@ -4,16 +4,16 @@ Thank you for looking at the mid-way progress of my capstone. Because I doubt yo
 
 The purpose of my site is to give users the chance to try pre-selected recipes in order of difficulty in order to become better at cooking. Users will be given a chance to rate their attempt at the recipe after following the instructions, which will determine if they are allowed to progress to the next recipe.
 
-Some instructions to get the site working on your machine"
+Some instructions to get the site working on your machine:
 
-To see the recipes, visit To see the recipes, visit https://api-ninjas.com/api/recipe in your browser and copy the api key provided. Creat a .env file in the root directory and write in your api key using this template:
+To see the recipes, visit https://api-ninjas.com/api/recipe in your browser and copy the api key provided. Create a .env file in the root directory and write in your api key using this template:
 apiKey ='-----------'
 
 
 Go to server.js
 
 
-in terminal, type npm install express. When that is finished, in the terminal, type npm install axios. Then type npm install dotenv, then type npm install path. Finally, you will need to type npm install --save-dev jest jest-environment-jsdom @testing-library/jest-dom @testing-library/dom to ensure jest will work.
+in terminal, type npm install and let all the packages install.
 
 
 ensure package.json reads as follows:
@@ -37,7 +37,7 @@ ensure package.json reads as follows:
 
 test script must be included, or tests will not run.
 
-run test with npm test
+run test by typing npm test in terminal
 The terminal should give you the test results. All five should pass.
 
 When you are ready to visit the site in your browser:
