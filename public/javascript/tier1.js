@@ -8,7 +8,7 @@ const retryButton = document.getElementById('retry');
 
 
 function myFunction() {
-  console.log("Hello from tier1and2.js!");
+  console.log("Thanks for looking!");
 }
 
 myFunction();

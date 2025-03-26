@@ -26,7 +26,7 @@
 .link {
         display: flex;
         border: 1px solid rgb(19, 18, 18);
-        padding: 2px;
+        margin-left: 0;
         float: left;
         margin-top: 20px;
         
@@ -99,8 +99,15 @@ img {
   width: 25%;
   height: auto;
   justify-content: center;
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
+}
+.egg-banner {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 40%;
+  margin: 40px auto;
 }
 /*.active {
     cursor: pointer;

@@ -52,7 +52,7 @@ app.get('/api/data/tier2', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch data' });
   }
 });
-app.get('/tier2', (req, res) => {
+app.get('/tier3', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'tier3.html'));
   });
 // Example API endpoint to fetch data using the API key
