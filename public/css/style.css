@@ -87,9 +87,9 @@
     display: none;
 }
 
-.rating {
+.rating, .rating_box {
   border: 1px solid #ccc;
-  width: 25%;
+  width: 50%;
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
@@ -109,6 +109,7 @@ img {
   width: 40%;
   margin: 40px auto;
 }
+
 /*.active {
     cursor: pointer;
     background-color: white;
@@ -118,7 +119,7 @@ img {
 }*/
 
 @media screen and (min-width: 720px) {
-  .rating {
+  .rating, .rating_box {
     width: 11%;
     border: 1px solid #ccc;
     margin-bottom: 10px;
