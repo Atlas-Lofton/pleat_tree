@@ -52,8 +52,8 @@ const fetchData = async () => {
 fetchData();
 
     window.addEventListener('apiDataLoaded', () => {
-      if (window.apiData && window.apiData.length >= 4) {
-        const firstItem = window.apiData[0];
+      if (window.apiData && window.apiData.length >= 10) {
+        const firstItem = window.apiData[9];
         // Clear existing content
         articleElement.innerHTML = '';
     

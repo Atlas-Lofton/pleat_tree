@@ -118,9 +118,9 @@ img {
     display: inline-block;
 }*/
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 800px) {
   .rating, .rating_box {
-    width: 11%;
+    width: 30%;
     border: 1px solid #ccc;
     margin-bottom: 10px;
     display: flex;
@@ -128,5 +128,15 @@ img {
   }
 
 
+
+}
+@media screen and (min-width: 500px) {
+  .rating, .rating_box {
+    width: 200px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+  }
 
 }

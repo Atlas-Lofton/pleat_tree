@@ -53,7 +53,7 @@ fetchData();
 
     window.addEventListener('apiDataLoaded', () => {
       if (window.apiData && window.apiData.length >= 4) {
-        const firstItem = window.apiData[0];
+        const firstItem = window.apiData[1];
         // Clear existing content
         articleElement.innerHTML = '';
     
